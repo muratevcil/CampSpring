@@ -14,6 +14,7 @@ public class inMemoryBrandRepository implements BrandRepository {
 		brands.add(new Brand(4,"Fiat"));
 		brands.add(new Brand(5,"Renault"));
 	}
+	//commit test
 	public List<Brand> getAll(){
 		return brands;	
 	}
