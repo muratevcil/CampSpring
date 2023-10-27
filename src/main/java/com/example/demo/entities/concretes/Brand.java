@@ -21,5 +21,5 @@ public class Brand {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	//entities<business entities creates the base
 }

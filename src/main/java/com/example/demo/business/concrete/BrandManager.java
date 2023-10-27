@@ -4,10 +4,17 @@ import com.example.demo.business.abstracts.BrandService;
 import com.example.demo.dataAccess.abstracts.BrandRepository;
 
 import java.util.List;
-import com.example.demo.entities.concretes.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entities.concretes.Brand;
+
+@Service //bu sınıf bir business nesnesidir
 public class BrandManager implements BrandService {
 	private BrandRepository brandRepository;
 	
+	@Autowired
 	public BrandManager(BrandRepository brandRepository) {
 		super();
 		this.brandRepository = brandRepository;

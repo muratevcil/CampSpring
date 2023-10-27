@@ -1,9 +1,13 @@
 package com.example.demo.dataAccess.concretes;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
 import com.example.demo.dataAccess.abstracts.BrandRepository;
+
 import com.example.demo.entities.concretes.Brand;
 import java.util.ArrayList;
+
+@Repository //bu sınıf bir data access nesnesidir.
 public class inMemoryBrandRepository implements BrandRepository {
 	List<Brand> brands;
 	public inMemoryBrandRepository() {

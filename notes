@@ -1,0 +1,5 @@
+//N Layered Architecture has 3 steps. Data Access,Business and Presentation.
+//We can add more layer to the software based on the requirements.
+//In this program that we are developing
+//First we use the data access layer where we write our SQL codes.
+//Second step is the business layer
