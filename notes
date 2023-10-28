@@ -1,5 +1,3 @@
-//N Layered Architecture has 3 steps. Data Access,Business and Presentation.
-//We can add more layer to the software based on the requirements.
-//In this program that we are developing
-//First we use the data access layer where we write our SQL codes.
-//Second step is the business layer
+4. Derse Kadar Olan Notlar.
+* Controllerdan istek yapılır. -> Business katmanında istek şartları değerlendirilir. -> DataAccess Katmanında veri erişimi sağlanır ve veri getirilir. -> Controller ile veri döndürülür.
+* IoC otomatik olarak veriyi bellekte newler. Spring'de bunu @Autowired ile yaparız. IoC sayesinde otomatik olarak bir Interface'i implemente eden class getirilir. Yani her yerde newlemeye gerek kalmaz.
