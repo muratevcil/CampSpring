@@ -2,13 +2,19 @@ package com.example.demo.business.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllBrandsResponse {
+@Getter
+@Setter
+public class GetByIdModelResponse {
 	private int id;
 	private String name;
-	private String description;
+	private String brandId;  
+	private String brandDescription;
 }
+	

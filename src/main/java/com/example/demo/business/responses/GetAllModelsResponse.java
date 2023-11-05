@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllBrandsResponse {
+public class GetAllModelsResponse {
 	private int id;
 	private String name;
-	private String description;
+	private String brandId;  //Models tablosunda id,name,brandId olmasına rağmen brandName e ulaşım sağlayabiliriz.
+	private String brandName;
+	private String brandDescription;
 }

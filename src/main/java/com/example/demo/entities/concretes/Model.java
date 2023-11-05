@@ -5,34 +5,42 @@ import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.example.demo.entities.concretes.Model;
+
+
 
 @Getter
 @Setter
-@NoArgsConstructor  //Lombok sayesinde getter ve setterları koyduk.
 @AllArgsConstructor
-@Table(name="brands")
+@NoArgsConstructor
+@Table(name="models")
 @Entity
-public class Brand {
-	@Id  //primary key olduğunu belli eder
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //UUID generates a new Id. IDENTITY automatically increments.
+public class Model {
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
 	@Column(name="name")
 	private String name;
 	
-	@Column(name="description")
-	private String description;
+	@ManyToOne
+	@JoinColumn(name = "brand_id")  // ORM içerisinde ID ile maplenecek.
+	private Brand brand;
 	
-	@OneToMany(mappedBy = "brand")
-	private List<Model> models;
+	@OneToMany(mappedBy = "model")
+	private List<Car> cars;
+	
+
 }

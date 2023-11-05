@@ -5,6 +5,7 @@ import com.example.demo.business.requests.CreateBrandRequest;
 import com.example.demo.business.requests.UpdateBrandRequest;
 import com.example.demo.business.responses.GetAllBrandsResponse;
 import com.example.demo.business.responses.GetByIdBrandResponse;
+import com.example.demo.business.rules.BrandBusinessRules;
 import com.example.demo.core.utilities.mappers.ModelMapperService;
 import com.example.demo.dataAccess.abstracts.BrandRepository;
 import java.util.List;
@@ -19,12 +20,14 @@ import com.example.demo.entities.concretes.Brand;
 public class BrandManager implements BrandService {
 	private BrandRepository brandRepository;
 	private ModelMapperService modelMapperService;
+	private BrandBusinessRules brandBusinessRules;
 	
 	@Autowired
-	public BrandManager(BrandRepository brandRepository, ModelMapperService modelMapperService) {
+	public BrandManager(BrandRepository brandRepository, ModelMapperService modelMapperService,BrandBusinessRules brandBusinessRules) {
 		super();
 		this.brandRepository=brandRepository;
 		this.modelMapperService=modelMapperService;
+		this.brandBusinessRules = brandBusinessRules;
 
 	}
 	public BrandManager() {
@@ -51,11 +54,13 @@ public class BrandManager implements BrandService {
 		return getAllBrandsResponses;
 	}
 	public void add(CreateBrandRequest createBrandRequest) {
+		this.brandBusinessRules.checkIfBrandNameExists(createBrandRequest.getName());
 		Brand brand = this.modelMapperService.forRequest().map(createBrandRequest,Brand.class);
 		this.brandRepository.save(brand);
 	}
 	
 	public GetByIdBrandResponse getById(int id) {
+		this.brandBusinessRules.checkIfBrandNameNotExists(id);
 		GetByIdBrandResponse getByIdBrandResponse = this.modelMapperService.forResponse().map(brandRepository.findById(id),GetByIdBrandResponse.class);
 		return getByIdBrandResponse;
 	}
