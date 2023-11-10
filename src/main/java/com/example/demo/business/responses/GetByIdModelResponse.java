@@ -1,5 +1,7 @@
 package com.example.demo.business.responses;
 
+import com.example.demo.entities.abstracts.ModelDetails;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,5 +18,6 @@ public class GetByIdModelResponse {
 	private String name;
 	private String brandId;  
 	private String brandDescription;
+	private ModelDetails modelDetails;
 }
 	

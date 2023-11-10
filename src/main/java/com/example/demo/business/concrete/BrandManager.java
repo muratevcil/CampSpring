@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.entities.concretes.Brand;
+import com.example.demo.entities.concretes.Model;
 
 @Service //bu sınıf bir business nesnesidir
 
@@ -47,10 +48,12 @@ public class BrandManager implements BrandService {
 		//				|
 		//				|
 		//			Bunu Mapper ile daha kolay yapabiliriz.
-		
-		
-		List<GetAllBrandsResponse> getAllBrandsResponses = brands.stream().map(brand->this.modelMapperService.forResponse().map(brand,GetAllBrandsResponse.class)).collect(Collectors.toList());		//Stream sayesinde alınan bütün brandleri tek tek dolaşıyor.
-
+		List<GetAllBrandsResponse> getAllBrandsResponses = brands.stream().map(brand->this.modelMapperService.forResponse().map(brand,GetAllBrandsResponse.class)).collect(Collectors.toList());//Stream sayesinde alınan bütün brandleri tek tek dolaşıyor.
+		//for(GetAllBrandsResponse brand:getAllBrandsResponses) {
+		//	for(Model model:brand.getModels()) {
+		//		model.setBrand(null);
+		//	}
+		//}
 		return getAllBrandsResponses;
 	}
 	public void add(CreateBrandRequest createBrandRequest) {

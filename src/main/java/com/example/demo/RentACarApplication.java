@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.example.demo.core.utilities.exceptions.BusinessException;
 import com.example.demo.core.utilities.exceptions.ProblemDetails;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import lombok.Value;
 @SpringBootApplication
 @RestControllerAdvice
 public class RentACarApplication {
@@ -25,6 +28,19 @@ public class RentACarApplication {
 		problemDetails.setMessage(businessException.getMessage());
 		return problemDetails;
 	}
+	
+	//disables ınternal_server_error response message.activate in production
+	/*
+	 * @ExceptionHandler
+	 * 
+	 * @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR) public String
+	 * ignoreExcepitonMessage(Exception exception) { RuntimeException
+	 * runtimeException = new
+	 * RuntimeException("Error occured.Consult to your assistant."); return
+	 * runtimeException.getMessage(); }
+	 */
+	
+	
 	@Bean
 	public ModelMapper getModelMapper() {
 		return new ModelMapper();

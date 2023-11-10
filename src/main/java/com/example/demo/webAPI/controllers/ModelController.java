@@ -18,6 +18,7 @@ import com.example.demo.business.abstracts.ModelService;
 import com.example.demo.business.requests.CreateBrandRequest;
 import com.example.demo.business.requests.CreateModelRequest;
 import com.example.demo.business.requests.UpdateBrandRequest;
+import com.example.demo.business.requests.UpdateModelRequest;
 import com.example.demo.business.responses.GetAllBrandsResponse;
 import com.example.demo.business.responses.GetAllModelsResponse;
 import com.example.demo.business.responses.GetByIdBrandResponse;
@@ -50,5 +51,15 @@ public class ModelController {
 	@ResponseStatus(code=HttpStatus.CREATED)
 	public void add(@RequestBody() CreateModelRequest createModelRequest) {
 		this.modelService.add(createModelRequest);
+	}
+	@PutMapping()
+	@ResponseStatus(code = HttpStatus.ACCEPTED)
+	public void update(@RequestBody() UpdateModelRequest updateModelRequest) {
+		this.modelService.update(updateModelRequest);
+	}
+	@PostMapping("/delete/{id}")
+	@ResponseStatus(code = HttpStatus.ACCEPTED)
+	public void delete(@PathVariable int id) {
+		this.modelService.delete(id);
 	}
 }

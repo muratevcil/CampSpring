@@ -29,7 +29,7 @@ public class ModelMapperManager implements ModelMapperService {
 	public ModelMapper forRequest() {
 		this.modelMapper.getConfiguration()
 		.setAmbiguityIgnored(true)
-		.setMatchingStrategy(MatchingStrategies.STANDARD); // Requestte ise bütün verilerin doğru girilip, veri tabanıyla eşlenmesini kontrol etmek istediğimiz için standart yaptık.
+		.setMatchingStrategy(MatchingStrategies.LOOSE); // Requestte ise bütün verilerin doğru girilip, veri tabanıyla eşlenmesini kontrol etmek istediğimiz için standart yaptık.
 		return this.modelMapper;
 	}
 	

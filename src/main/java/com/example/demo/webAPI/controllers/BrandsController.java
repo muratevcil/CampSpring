@@ -52,7 +52,7 @@ public class BrandsController{
 	public void update(@RequestBody() UpdateBrandRequest updateBrandRequest) {
 		this.brandService.update(updateBrandRequest);
 	}
-	@DeleteMapping("/{id}")
+	@PostMapping("/delete/{id}")
 	@ResponseStatus(code=HttpStatus.ACCEPTED)
 	public void delete(@PathVariable int id) {
 		this.brandService.delete(id);

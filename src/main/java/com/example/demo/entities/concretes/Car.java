@@ -14,6 +14,8 @@ import lombok.Setter;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name="cars")
 @Getter
 @Setter
@@ -26,20 +28,20 @@ public class Car {
 	@Column(name = "id")
 	private int id;
 	
-	
 	@Column(name="plate" , unique = true)
 	private String plate;
 	
 	@Column(name="dailyPrice")
 	private double dailyPrice;
 	
-	@Column(name="modelYear")
-	private int modelYear;
-	
 	@Column(name="state")
 	private int state;  //1- Available 2- Rented 3- Maintenance
 	
+	@Column(name="kilometer")
+	private double kilometer;
+	
 	@ManyToOne // {Geldiği yer}To{Gittiği Yer} (Birden çok arabanın tek bi markası olabilir)
 	@JoinColumn(name="model")
+	@JsonIgnore
 	private Model model; // model içerisinde brand bilgisi de olduğu için modeli almamız yeterli olacaktır.
 }

@@ -4,7 +4,6 @@ import com.example.demo.business.requests.CreateBrandRequest;
 import com.example.demo.business.requests.UpdateBrandRequest;
 import com.example.demo.business.responses.GetAllBrandsResponse;
 import com.example.demo.business.responses.GetByIdBrandResponse;
-import com.example.demo.entities.concretes.Brand;
 
 import java.util.List;
 

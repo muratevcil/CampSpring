@@ -1,5 +1,9 @@
 package com.example.demo.business.requests;
 
+import java.util.List;
+
+import com.example.demo.entities.concretes.Model;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
